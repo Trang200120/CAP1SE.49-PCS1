@@ -1,7 +1,10 @@
 package com.gym.course.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+
+@Data
 @Entity
 @Table
 public class Profile {

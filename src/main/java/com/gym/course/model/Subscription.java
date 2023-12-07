@@ -1,9 +1,11 @@
 package com.gym.course.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.sql.Timestamp;
 
+@Data
 @Entity
 @Table
 public class Subscription {

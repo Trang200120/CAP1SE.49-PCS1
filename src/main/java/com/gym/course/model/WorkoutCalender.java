@@ -1,7 +1,10 @@
 package com.gym.course.model;
 
 import jakarta.persistence.*;
+import jdk.jfr.DataAmount;
+import lombok.Data;
 
+@Data
 @Entity
 @Table
 public class WorkoutCalender {
