@@ -10,22 +10,22 @@ public class Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "VideoId")
+    @Column
     private int videoId;
 
-    @Column(name = "VideoName")
+    @Column
     private String name;
 
-    @Column(name = "VideoLink")
+    @Column
     private String link;
 
-    @Column(name = "View")
-    private int view;
+    @Column
+    private int views;
 
-    @Column(name = "Like")
-    private int like;
+    @Column
+    private int likes;
 
-    @Column(name = "CreateDate")
+    @Column
     private Date createdDate;
 
     @ManyToOne

@@ -9,25 +9,25 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int profileId;
 
-    @Column(name = "Height")
+    @Column
     private int height;
 
-    @Column(name = "Weight")
+    @Column
     private int weight;
 
-    @Column(name = "Waist")
+    @Column
     private int waist;
 
-    @Column(name = "Chest")
+    @Column
     private int chest;
 
-    @Column(name = "Hip")
+    @Column
     private int hip;
 
-    @Column(name = "Arm")
+    @Column
     private int arm;
 
-    @Column(name = "VideoId")
+    @Column
     private int videoId;
 
     @OneToOne

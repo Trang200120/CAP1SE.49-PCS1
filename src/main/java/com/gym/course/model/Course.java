@@ -10,19 +10,18 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CourseId")
     private int courseId;
 
-    @Column(name = "Description")
+    @Column
     private String description;
 
-    @Column(name = "CourseName")
+    @Column
     private String name;
 
-    @Column(name = "CreateDate")
+    @Column
     private Date createdDate;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Video> videos;
 
 

@@ -2,6 +2,8 @@ package com.gym.course.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table
 public class WorkoutHistory {
@@ -12,4 +14,5 @@ public class WorkoutHistory {
     @ManyToOne
     @JoinColumn(name = "CustomerId")
     private Customer customer;
+
 }

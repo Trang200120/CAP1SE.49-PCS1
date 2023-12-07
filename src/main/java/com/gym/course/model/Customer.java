@@ -10,52 +10,53 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CustomerId")
     private int customerId;
 
-    @Column(name = "Email")
+    @Column
     @Email
     private String email;
 
-    @Column(name = "NickName")
-    private String nickName;
+    @Column
+    private String nickname;
 
-    @Column(name = "Password")
+    @Column
     private String password;
 
-    @Column(name = "State")
+    @Column
     private int state;
 
-    @Column(name = "Role")
+    @Column
     private int role;
 
-    @Column(name = "Sex")
+    @Column
     private int sex;
 
-    @Column(name = "LinkInstagram")
+    @Column
     private String linkInstagram;
 
-    @Column(name = "LinkFacebook")
+    @Column
     private String linkFacebook;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Profile profile;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<ProcessImage> processImages;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<WorkoutHistory> workoutHistories;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<WorkoutCalender> workoutCalenders;
 
-    @OneToMany(mappedBy = "send")
+    @OneToMany(mappedBy = "send", cascade = CascadeType.ALL)
     private List<Message> sendMessages;
 
-    @OneToMany(mappedBy = "received")
+    @OneToMany(mappedBy = "received", cascade = CascadeType.ALL)
     private List<Message> receivedMessages;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Subscription> subscriptions;
 }
+
+

@@ -9,28 +9,28 @@ public class WorkoutCalender {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "Height")
+    @Column
     private int height;
 
-    @Column(name = "Weight")
+    @Column
     private int weight;
 
-    @Column(name = "Waist")
+    @Column
     private int waist;
 
-    @Column(name = "Chest")
+    @Column
     private int chest;
 
-    @Column(name = "Hip")
+    @Column
     private int hip;
 
-    @Column(name = "Arm")
+    @Column
     private int arm;
 
-    @Column(name = "Rating")
+    @Column
     private int rating;
 
-    @Column(name = "Note")
+    @Column
     private String note;
 
     @ManyToOne

@@ -11,16 +11,16 @@ public class ProcessImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int imageId;
 
-    @Column(name = "ImageLink")
+    @Column
     private String imageLink;
 
-    @Column(name = "Angle")
+    @Column
     private int angle;
 
-    @Column(name = "Note")
+    @Column
     private String note;
 
-    @Column(name = "CreatedDate")
+    @Column
     private Date createdDate;
 
     @ManyToOne

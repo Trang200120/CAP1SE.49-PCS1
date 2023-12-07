@@ -11,10 +11,10 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "Text")
+    @Column
     private String text;
 
-    @Column(name = "Time")
+    @Column
     private Timestamp time;
 
     @ManyToOne
