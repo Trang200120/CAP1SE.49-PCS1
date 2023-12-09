@@ -1,5 +1,6 @@
 package com.gym.course.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,21 +11,24 @@ import java.util.List;
 @Entity
 @Table
 public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int courseId;
 
-    @Column
-    private String description;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int courseId;
 
-    @Column
-    private String name;
+	@Column
+	private String description;
 
-    @Column
-    private Date createdDate;
+	@Column
+	private String name;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<Video> videos;
+	@Column
+	private Date createdDate;
 
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	private List<Video> videos;
+
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	private List<Subscription> subscriptions;
 
 }

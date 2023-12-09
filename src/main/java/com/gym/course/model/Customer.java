@@ -10,55 +10,55 @@ import java.util.List;
 @Entity
 @Table
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerId;
 
-    @Column
-    @Email
-    private String email;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int customerId;
 
-    @Column
-    private String nickname;
+	@Column
+	@Email
+	private String email;
 
-    @Column
-    private String password;
+	@Column
+	private String nickname;
 
-    @Column
-    private int state;
+	@Column
+	private String password;
 
-    @Column
-    private int role;
+	@Column
+	private int state;
 
-    @Column
-    private int sex;
+	@Column
+	private int role;
 
-    @Column
-    private String linkInstagram;
+	@Column
+	private int sex;
 
-    @Column
-    private String linkFacebook;
+	@Column
+	private String linkInstagram;
 
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Profile profile;
+	@Column
+	private String linkFacebook;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<ProcessImage> processImages;
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+	private Profile profile;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<WorkoutHistory> workoutHistories;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<ProcessImage> processImages;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<WorkoutCalender> workoutCalenders;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<WorkoutHistory> workoutHistories;
 
-    @OneToMany(mappedBy = "send", cascade = CascadeType.ALL)
-    private List<Message> sendMessages;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<WorkoutCalender> workoutCalenders;
 
-    @OneToMany(mappedBy = "received", cascade = CascadeType.ALL)
-    private List<Message> receivedMessages;
+	@OneToMany(mappedBy = "send", cascade = CascadeType.ALL)
+	private List<Message> sendMessages;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Subscription> subscriptions;
+	@OneToMany(mappedBy = "received", cascade = CascadeType.ALL)
+	private List<Message> receivedMessages;
+
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<Subscription> subscriptions;
+
 }
-
-

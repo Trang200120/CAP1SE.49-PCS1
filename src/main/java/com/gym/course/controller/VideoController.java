@@ -1,23 +1,35 @@
 package com.gym.course.controller;
 
+import com.gym.course.dto.VideoResponse;
 import com.gym.course.model.Video;
 import com.gym.course.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/videos")
 public class VideoController {
-    @Autowired
-    private VideoService videoService;
 
-    @PostMapping
-    public ResponseEntity<Void> createVideo(@RequestBody Video video){
-        videoService.createVideo(video);
-        return ResponseEntity.ok().build();
-    }
+	@Autowired
+	private VideoService videoService;
+
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> createVideo(@RequestBody Video video) {
+		videoService.createVideo(video);
+		return ResponseEntity.ok().build();
+	}
+
+	@GetMapping("/{videoId}")
+	public ResponseEntity<VideoResponse> getVideoById(@PathVariable int videoId) {
+		return ResponseEntity.ok(videoService.getVideoById(videoId));
+	}
+
+	@DeleteMapping("/{videoId}")
+	public ResponseEntity<Void> deleteVideo(@PathVariable int videoId) {
+		videoService.deleteVideoById(videoId);
+		return ResponseEntity.ok().build();
+	}
+
 }

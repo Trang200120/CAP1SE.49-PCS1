@@ -1,5 +1,6 @@
 package com.gym.course.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,27 +11,28 @@ import java.util.Date;
 @Table
 public class Video {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private int videoId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private int videoId;
 
-    @Column
-    private String name;
+	@Column
+	private String name;
 
-    @Column
-    private String link;
+	@Column
+	private String link;
 
-    @Column
-    private int views;
+	@Column
+	private int views;
 
-    @Column
-    private int likes;
+	@Column
+	private int likes;
 
-    @Column
-    private Date createdDate;
+	@Column
+	private Date createdDate;
 
-    @ManyToOne
-    @JoinColumn(name = "CourseId")
-    private Course course;
+	@ManyToOne
+	@JoinColumn(name = "CourseId")
+	private Course course;
+
 }

@@ -9,25 +9,25 @@ import java.util.Date;
 @Entity
 @Table
 public class ProcessImage {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int imageId;
 
-    @Column
-    private String imageLink;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int imageId;
 
-    @Column
-    private int angle;
+	@Column
+	private String imageLink;
 
-    @Column
-    private String note;
+	@Column
+	private int angle;
 
-    @Column
-    private Date createdDate;
+	@Column
+	private String note;
 
-    @ManyToOne
-    @JoinColumn(name = "CustomerId")
-    private Customer customer;
+	@Column
+	private Date createdDate;
 
+	@ManyToOne
+	@JoinColumn(name = "CustomerId")
+	private Customer customer;
 
 }

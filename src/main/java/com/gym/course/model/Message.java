@@ -9,21 +9,23 @@ import java.sql.Timestamp;
 @Entity
 @Table
 public class Message {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    @Column
-    private String text;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    @Column
-    private Timestamp time;
+	@Column
+	private String text;
 
-    @ManyToOne
-    @JoinColumn(name = "Send")
-    private Customer send;
+	@Column
+	private Timestamp time;
 
-    @ManyToOne
-    @JoinColumn(name = "Received")
-    private Customer received;
+	@ManyToOne
+	@JoinColumn(name = "Send")
+	private Customer send;
+
+	@ManyToOne
+	@JoinColumn(name = "Received")
+	private Customer received;
+
 }
