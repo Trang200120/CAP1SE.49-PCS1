@@ -42,8 +42,16 @@ public class VideoService {
 		videoRepository.deleteById(videoId);
 	}
 
-	public Video updateVideo(Video video) {
-		return videoRepository.save(video);
+	public VideoResponse updateVideo(int videoId, Video updateVideo) {
+		Video video = videoRepository.findById(videoId)
+			.orElseThrow(() -> new VideoNotFoundException("No video found with id " + videoId));
+		video.setLink(updateVideo.getLink());
+		video.setLikes(updateVideo.getViews());
+		video.setName(updateVideo.getName());
+		video.setLikes(updateVideo.getLikes());
+		video.setCreatedDate(updateVideo.getCreatedDate());
+		videoRepository.save(video);
+		return new VideoResponse(video);
 	}
 
 }

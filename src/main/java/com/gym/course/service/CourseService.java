@@ -48,4 +48,13 @@ public class CourseService {
 		courseRepository.deleteById(courseId);
 	}
 
+	public CourseResponse updateCourse(int courseId, Course updateCourse) {
+		Course course = courseRepository.findById(courseId)
+			.orElseThrow(() -> new CourseNotFoundException("No course found with id " + courseId));
+		course.setName(updateCourse.getName());
+		course.setDescription(updateCourse.getDescription());
+		course.setCreatedDate(updateCourse.getCreatedDate());
+		return new CourseResponse(courseRepository.save(course));
+	}
+
 }

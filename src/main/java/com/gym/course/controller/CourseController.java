@@ -5,6 +5,7 @@ import com.gym.course.model.Course;
 import com.gym.course.service.CourseService;
 import com.gym.course.service.SubscriptionService;
 import lombok.AllArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -54,6 +55,11 @@ public class CourseController {
 	public ResponseEntity<List<CourseResponse>> getCourseByCustomer(@PathVariable int customerId) {
 		List<CourseResponse> courses = subscriptionService.getCoursesForCustomer(customerId);
 		return ResponseEntity.ok(courses);
+	}
+
+	@PutMapping("/{courseId}")
+	public ResponseEntity<CourseResponse> updateCourse(@PathVariable int courseId, @RequestBody Course course) {
+		return ResponseEntity.ok(courseService.updateCourse(courseId, course));
 	}
 
 }

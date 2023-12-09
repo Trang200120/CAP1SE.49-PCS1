@@ -3,6 +3,7 @@ package com.gym.course.controller;
 import com.gym.course.dto.VideoResponse;
 import com.gym.course.model.Video;
 import com.gym.course.service.VideoService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,11 @@ public class VideoController {
 	public ResponseEntity<Void> deleteVideo(@PathVariable int videoId) {
 		videoService.deleteVideoById(videoId);
 		return ResponseEntity.ok().build();
+	}
+
+	@PutMapping("/{videoId}")
+	public ResponseEntity<VideoResponse> updateVideo(@PathVariable int videoId, @RequestBody Video video) {
+		return ResponseEntity.ok(videoService.updateVideo(videoId, video));
 	}
 
 }

@@ -37,4 +37,14 @@ public class CustomerService {
 		customerRepository.deleteById(customerId);
 	}
 
+	public CustomerResponse updateCustomer(int customerId, Customer updateCustomer) {
+		Customer customer = customerRepository.findById(customerId)
+			.orElseThrow(() -> new CustomerNotFoundException("No customer with id " + customerId));
+		customer.setNickname(updateCustomer.getNickname());
+		customer.setLinkFacebook(updateCustomer.getLinkFacebook());
+		customer.setLinkInstagram(updateCustomer.getLinkInstagram());
+		customer.setSex(updateCustomer.getSex());
+		return new CustomerResponse(customerRepository.save(customer));
+	}
+
 }
