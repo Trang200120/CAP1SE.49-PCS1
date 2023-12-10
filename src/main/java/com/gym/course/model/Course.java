@@ -12,9 +12,11 @@ import java.util.List;
 @Entity
 @Table
 public class Course {
-	public Course(){
+
+	public Course() {
 		this.videos = new ArrayList<>();
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int courseId;
@@ -35,7 +37,7 @@ public class Course {
 	private List<Subscription> subscriptions;
 
 	@PrePersist
-	protected void onCreate(){
+	protected void onCreate() {
 		createdDate = new Date();
 	}
 

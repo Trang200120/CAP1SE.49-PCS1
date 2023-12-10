@@ -21,8 +21,9 @@ public class VideoService {
 	@Autowired
 	private CourseRepository courseRepository;
 
-	public void createVideo(Video video) {
+	public Video createVideo(Video video) {
 		Video createdVideo = videoRepository.save(video);
+		return createdVideo;
 	}
 
 	public List<Video> getVideoByCourseId(int courseId) {

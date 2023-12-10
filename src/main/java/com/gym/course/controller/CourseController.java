@@ -29,7 +29,7 @@ public class CourseController {
 
 	@PostMapping
 	public ResponseEntity<CourseResponse> createCourse(@RequestBody Course course) {
-		return ResponseEntity.ok(courseService.createCourse(course));
+		return ResponseEntity.status(CREATED).body(courseService.createCourse(course));
 	}
 
 	@GetMapping("/{courseId}")
@@ -43,9 +43,8 @@ public class CourseController {
 	}
 
 	@DeleteMapping("/{courseId}")
-	public ResponseEntity<Void> deleteCourseById(@PathVariable int courseId) {
-		courseService.deleteCourseById(courseId);
-		return ResponseEntity.ok().build();
+	public ResponseEntity<String> deleteCourseById(@PathVariable int courseId) {
+		return ResponseEntity.ok("Course deleted successfully");
 	}
 
 	@GetMapping("/customer/{customerId}")

@@ -8,12 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig implements WebMvcConfigurer {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .exposedHeaders("*")
-                .maxAge(3600);
-    }
+
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**").allowedOrigins("*").allowedMethods("*").exposedHeaders("*").maxAge(3600);
+	}
+
 }
