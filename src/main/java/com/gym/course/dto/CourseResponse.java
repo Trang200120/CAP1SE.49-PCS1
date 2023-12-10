@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class CourseResponse {
 		this.description = course.getDescription();
 		this.name = course.getName();
 		this.createdDate = course.getCreatedDate();
-		this.videoIds = course.getVideos().stream().map(Video::getVideoId).collect(Collectors.toList());
+		this.videoIds =  course.getVideos().stream().map(Video::getVideoId).collect(Collectors.toList());
 	}
 
 }

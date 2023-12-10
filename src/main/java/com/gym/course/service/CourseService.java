@@ -28,8 +28,9 @@ public class CourseService {
 	@Autowired
 	private SubscriptionRepository subscriptionRepository;
 
-	public Course createCourse(Course course) {
-		return courseRepository.save(course);
+	public CourseResponse createCourse(Course course) {
+		Course createdCourse = courseRepository.save(course);
+		return new CourseResponse(createdCourse);
 	}
 
 	public CourseResponse findCourseById(int courseId) {

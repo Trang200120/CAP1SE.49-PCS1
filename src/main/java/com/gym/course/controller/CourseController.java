@@ -28,11 +28,8 @@ public class CourseController {
 	private SubscriptionService subscriptionService;
 
 	@PostMapping
-	public ResponseEntity<?> createCourse(@RequestBody Course course) {
-		Course savedCourse = courseService.createCourse(course);
-		return ResponseEntity.status(CREATED)
-			.header("Location", String.format("/api/course/%d", savedCourse.getCourseId()))
-			.build();
+	public ResponseEntity<CourseResponse> createCourse(@RequestBody Course course) {
+		return ResponseEntity.ok(courseService.createCourse(course));
 	}
 
 	@GetMapping("/{courseId}")
