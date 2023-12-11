@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,10 @@ import java.util.List;
 @Entity
 @Table
 public class Course {
+
+	public Course() {
+		this.videos = new ArrayList<>();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +35,10 @@ public class Course {
 
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private List<Subscription> subscriptions;
+
+	@PrePersist
+	protected void onCreate() {
+		createdDate = new Date();
+	}
 
 }
