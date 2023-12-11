@@ -34,9 +34,6 @@ public class AccountController {
 
 	@PostMapping("/login")
 	public ResponseEntity<?> loginCustomer(@RequestBody LoginRequest request) {
-		String email = request.getEmail();
-		String password = request.getPassword();
-
 		LoginResponse loginResponse = customerService.loginCustomer(request);
 		return ResponseEntity.ok(loginResponse);
 	}
