@@ -30,6 +30,8 @@ public class VideoResponse {
 
 	private int courseId;
 
+	private String thumbnails;
+
 	public VideoResponse(Video video) {
 		this.videoId = video.getVideoId();
 		this.name = video.getName();
@@ -38,6 +40,7 @@ public class VideoResponse {
 		this.likes = video.getLikes();
 		this.createdDate = video.getCreatedDate();
 		this.courseId = video.getCourse().getCourseId();
+		this.thumbnails = video.getThumbnails();
 	}
 
 }

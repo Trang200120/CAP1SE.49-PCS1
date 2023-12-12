@@ -23,6 +23,9 @@ public class Video {
 	private String link;
 
 	@Column
+	private String thumbnails;
+
+	@Column
 	private int views;
 
 	@Column

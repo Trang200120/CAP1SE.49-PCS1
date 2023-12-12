@@ -26,12 +26,15 @@ public class CourseResponse {
 
 	private List<Integer> videoIds; // List of video IDs
 
+	private String thumbnails;
+
 	public CourseResponse(Course course) {
 		this.courseId = course.getCourseId();
 		this.description = course.getDescription();
 		this.name = course.getName();
 		this.createdDate = course.getCreatedDate();
 		this.videoIds = course.getVideos().stream().map(Video::getVideoId).collect(Collectors.toList());
+		this.thumbnails = course.getThumbnail();
 	}
 
 }

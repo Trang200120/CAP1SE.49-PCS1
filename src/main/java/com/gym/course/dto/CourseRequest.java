@@ -10,11 +10,15 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class CourseRequest {
-    private int courseId;
 
-    private String description;
+	private int courseId;
 
-    private String name;
+	private String description;
 
-    private Date createdDate;
+	private String name;
+
+	private Date createdDate;
+
+	private String thumbnail;
+
 }

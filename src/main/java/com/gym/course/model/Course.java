@@ -25,6 +25,9 @@ public class Course {
 	private String description;
 
 	@Column
+	private String thumbnail;
+
+	@Column
 	private String name;
 
 	@Column
